@@ -4,8 +4,7 @@
 #include <cstdint>
 
 using namespace std;
-//klasa do pojedynczej osoby
-class Osoba
+class Osoba //klasa do pojedynczej osoby
 {
 private:
     string imie;
@@ -13,25 +12,22 @@ private:
     int nr;
 
 public:
-    //metoda do wczytania z klawiatury
-    void wczytaj_z_klawiatury()
+    void wczytaj_z_klawiatury() //metoda do wczytania z klawiatury
     {
         cin >> imie >> nazwisko >> nr;
     }
-    //metoda do wczytania z pliku
-    void wczytaj(ifstream &plik)
+
+    void wczytaj(ifstream &plik)  //metoda do wczytania z pliku
     {
         plik >> imie >> nazwisko >> nr;
     }
-    //metoda do wypisywania
-    void wypisz()
+    void wypisz()      //metoda do wypisywania
     {
         cout << imie << " " << nazwisko << " " << nr << endl;
     }
 };
 
-//klasa do klasy
-class Klasa
+class Klasa   //klasa do klasy
 {
 private:
     string nazwa;
@@ -39,8 +35,7 @@ private:
     Osoba osoba[30];
 
 public:
-    //metoda do wczytania z klawiatury
-    void wczytaj_z_klawiatury(const int &ile)
+    void wczytaj_z_klawiatury(const int &ile)   //metoda do wczytania z klawiatury
     {
         cin >> nazwa;
         cin >> wychowawca;
@@ -50,8 +45,7 @@ public:
             osoba[i].wczytaj_z_klawiatury();
         }
     }
-    //metoda do wczytania z pliku
-    void wczytaj(ifstream &plik, const int &ile)
+    void wczytaj(ifstream &plik, const int &ile)  //metoda do wczytania z pliku
     {
         plik >> nazwa;
         plik >> wychowawca;
@@ -61,8 +55,7 @@ public:
             osoba[i].wczytaj(plik);
         }
     }
-    //metoda do wypisania
-    void wypisz(const int &ile)
+    void wypisz(const int &ile)    //metoda do wypisania
     {
         cout << "Klasa: " << nazwa << endl;
         cout << "Wychowawca: " << wychowawca << endl;
@@ -77,29 +70,21 @@ public:
 
 int main()
 {
-    //ilosc osob w klasie
-    int ile = 2;
-    //zainicjowanie klasa1
-    Klasa klasa1;
+    int ile = 2;    //ilosc osob w klasie
+    Klasa klasa1;    //zainicjowanie klasa1
     bool zPliku;
     uint8_t wybor;
-    cout<<"z pliku czy z klawiatury?(z pliku '1', z klawiatury '2')\n";
+    cout<<"z pliku '1' czy z klawiatury '2'?(\n";
     cin>>wybor;
     if(wybor=='1'){
-    //otwarcie pliku a.txt
-    ifstream plik("a.txt");
-    //wczytanie z pliku
-    klasa1.wczytaj(plik, ile);
-    //zamkniecie pliku
-    plik.close();
-    //wypisanie klasy
-    klasa1.wypisz(ile);
+    ifstream plik("a.txt");    //otwarcie pliku a.txt
+    klasa1.wczytaj(plik, ile);    //wczytanie z pliku
+    plik.close();    //zamkniecie pliku
+    klasa1.wypisz(ile);    //wypisanie klasy
     }
     else{
-    //wczytanie z klawiatury
-    klasa1.wczytaj_z_klawiatury(ile);
-    //wypisanie klasy
-    klasa1.wypisz(ile);
+    klasa1.wczytaj_z_klawiatury(ile);    //wczytanie z klawiatury
+    klasa1.wypisz(ile);   //wypisanie klasy
     }
     return 0;
 }
