@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1789971410 source:c:\users\admin\documents\gruzik 4tp\jygiu\main.cpp
+	<iostream>
+	<fstream>
+	<string>
+	<cstdint>
+
