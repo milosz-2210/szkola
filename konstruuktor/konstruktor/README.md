@@ -1,0 +1,1 @@
+Program w C++ tworzy listę jednokierunkową. Elementy listy przechowują liczbę oraz wskaźnik do następnego elementu. Funkcja dodaj() dodaje nowe wartości na końcu listy. W main() do listy dodawane są liczby 10, 20 i 30. Destruktor ~lista() na końcu programu usuwa wszystkie elementy i zwalnia zajętą pamięć.
