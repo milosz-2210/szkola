@@ -1,30 +1,42 @@
-﻿<Window x:Class="kalkulator.MainWindow"
+
+<Window x:Class="kalkulator.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Mój kalkulator"
-        Height="520"
-        Width="360"
-        MinHeight="520"
-        MinWidth="360"
-        MaxHeight="520"
-        MaxWidth="360"
+
+        Height="520" Width="360"
+        MinHeight="520" MinWidth="360"
+        MaxHeight="520" MaxWidth="360"
+
         WindowStartupLocation="CenterScreen"
         Background="#172033"
         ResizeMode="NoResize">
 
-    <!-- Style muszą być dostępne przed przyciskami -->
+    <!-- STYLE PRZYCISKÓW -->
+    <!-- Window.Resources przechowuje style, które można
+         później przypisać do wielu przycisków. -->
+
     <Window.Resources>
 
+        <!-- Styl cyfr od 0 do 9 -->
         <Style x:Key="Cyfra" TargetType="{x:Type Button}">
             <Setter Property="Margin" Value="4"/>
+            <!-- Odstęp przycisku od innych przycisków -->
             <Setter Property="FontSize" Value="23"/>
+            <!-- Wielkość tekstu na przycisku -->
             <Setter Property="FontWeight" Value="SemiBold"/>
+            <!-- Grubość czcionki -->
             <Setter Property="Foreground" Value="#F8FAFC"/>
+            <!-- Kolor tekstu -->
             <Setter Property="Background" Value="#34425D"/>
+            <!-- Kolor tła przycisku -->
             <Setter Property="BorderThickness" Value="0"/>
+            <!-- Usunięcie obramowania -->
             <Setter Property="Cursor" Value="Hand"/>
+            <!-- Kursor zmienia się w dłoń po najechaniu -->
         </Style>
 
+        <!-- Styl przycisków działań: +, -, ×, ÷ -->
         <Style x:Key="Dzialanie" TargetType="{x:Type Button}">
             <Setter Property="Margin" Value="4"/>
             <Setter Property="FontSize" Value="25"/>
@@ -35,6 +47,7 @@
             <Setter Property="Cursor" Value="Hand"/>
         </Style>
 
+        <!-- Styl przycisków funkcyjnych: C i usuwanie -->
         <Style x:Key="Funkcyjny" TargetType="{x:Type Button}">
             <Setter Property="Margin" Value="4"/>
             <Setter Property="FontSize" Value="21"/>
@@ -45,6 +58,7 @@
             <Setter Property="Cursor" Value="Hand"/>
         </Style>
 
+        <!-- Styl przycisku równości -->
         <Style x:Key="Wynikowy" TargetType="{x:Type Button}">
             <Setter Property="Margin" Value="4"/>
             <Setter Property="FontSize" Value="28"/>
@@ -57,13 +71,20 @@
 
     </Window.Resources>
 
+    <!-- GŁÓWNY UKŁAD OKNA -->
     <Grid Margin="15">
+        <!-- Grid dzieli okno na wiersze i kolumny.
+             Margin ustawia odstęp zawartości od krawędzi. -->
+
         <Grid.RowDefinitions>
+            <!-- Pierwszy wiersz na wyświetlacz wyniku -->
             <RowDefinition Height="90"/>
+
+            <!-- Drugi wiersz zajmuje pozostałe miejsce -->
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Wyświetlacz wyniku -->
+        <!-- WYŚWIETLACZ WYNIKU -->
         <TextBox x:Name="Wynik"
                  Grid.Row="0"
                  Text="0"
@@ -78,11 +99,20 @@
                  Padding="10"
                  Margin="0,0,0,12"/>
 
-        <!-- Przyciski kalkulatora -->
+        <!-- x:Name="Wynik" pozwala odwołać się do pola w C#.
+             IsReadOnly="True" blokuje ręczne wpisywanie.
+             TextAlignment="Right" wyrównuje tekst do prawej.
+             Text określa początkową wartość wyświetlacza. -->
+
+        <!-- UKŁAD PRZYCISKÓW -->
         <UniformGrid Grid.Row="1"
                      Columns="4"
                      Rows="5">
 
+            <!-- UniformGrid automatycznie rozmieszcza przyciski
+                 w równych komórkach: 4 kolumny i 5 wierszy. -->
+
+            <!-- CZYŚĆ I USUWANIE -->
             <Button Content="C"
                     Click="Wyczysc_Click"
                     Style="{StaticResource Funkcyjny}"/>
@@ -91,6 +121,7 @@
                     Click="Usun_Click"
                     Style="{StaticResource Funkcyjny}"/>
 
+            <!-- DZIAŁANIA MATEMATYCZNE -->
             <Button Content="÷"
                     Click="Dzialanie_Click"
                     Style="{StaticResource Dzialanie}"/>
@@ -99,6 +130,7 @@
                     Click="Dzialanie_Click"
                     Style="{StaticResource Dzialanie}"/>
 
+            <!-- CYFRY 7, 8, 9 I ODEJMOWANIE -->
             <Button Content="7"
                     Click="Cyfra_Click"
                     Style="{StaticResource Cyfra}"/>
@@ -115,6 +147,7 @@
                     Click="Dzialanie_Click"
                     Style="{StaticResource Dzialanie}"/>
 
+            <!-- CYFRY 4, 5, 6 I DODAWANIE -->
             <Button Content="4"
                     Click="Cyfra_Click"
                     Style="{StaticResource Cyfra}"/>
@@ -131,6 +164,7 @@
                     Click="Dzialanie_Click"
                     Style="{StaticResource Dzialanie}"/>
 
+            <!-- CYFRY 1, 2, 3 -->
             <Button Content="1"
                     Click="Cyfra_Click"
                     Style="{StaticResource Cyfra}"/>
@@ -143,11 +177,17 @@
                     Click="Cyfra_Click"
                     Style="{StaticResource Cyfra}"/>
 
+            <!-- PRZYCISK RÓWNOŚCI -->
             <Button Content="="
                     Click="Wynik_Click"
                     Grid.RowSpan="2"
-                    Style="{StaticResource Wynikowy}" Margin="4,4,4,-73"/>
+                    Style="{StaticResource Wynikowy}"
+                    Margin="4,4,4,-73"/>
 
+            <!-- Grid.RowSpan="2" określa rozciągnięcie na dwa wiersze.
+                 Margin ustawia odstępy wokół przycisku. -->
+
+            <!-- ZERO, ZMIANA ZNAKU I PRZECINEK -->
             <Button Content="±"
                     Click="Znak_Click"
                     Style="{StaticResource Funkcyjny}"/>
