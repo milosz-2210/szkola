@@ -1,0 +1,165 @@
+﻿<Window x:Class="kalkulator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Mój kalkulator"
+        Height="520"
+        Width="360"
+        MinHeight="520"
+        MinWidth="360"
+        MaxHeight="520"
+        MaxWidth="360"
+        WindowStartupLocation="CenterScreen"
+        Background="#172033"
+        ResizeMode="NoResize">
+
+    <!-- Style muszą być dostępne przed przyciskami -->
+    <Window.Resources>
+
+        <Style x:Key="Cyfra" TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="FontSize" Value="23"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="#F8FAFC"/>
+            <Setter Property="Background" Value="#34425D"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+        <Style x:Key="Dzialanie" TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#3984F5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+        <Style x:Key="Funkcyjny" TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="FontSize" Value="21"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="Background" Value="#53627D"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+        <Style x:Key="Wynikowy" TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#20B981"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Wyświetlacz wyniku -->
+        <TextBox x:Name="Wynik"
+                 Grid.Row="0"
+                 Text="0"
+                 FontSize="34"
+                 FontWeight="Bold"
+                 Foreground="White"
+                 Background="#26334D"
+                 BorderThickness="0"
+                 TextAlignment="Right"
+                 VerticalContentAlignment="Center"
+                 IsReadOnly="True"
+                 Padding="10"
+                 Margin="0,0,0,12"/>
+
+        <!-- Przyciski kalkulatora -->
+        <UniformGrid Grid.Row="1"
+                     Columns="4"
+                     Rows="5">
+
+            <Button Content="C"
+                    Click="Wyczysc_Click"
+                    Style="{StaticResource Funkcyjny}"/>
+
+            <Button Content="⌫"
+                    Click="Usun_Click"
+                    Style="{StaticResource Funkcyjny}"/>
+
+            <Button Content="÷"
+                    Click="Dzialanie_Click"
+                    Style="{StaticResource Dzialanie}"/>
+
+            <Button Content="×"
+                    Click="Dzialanie_Click"
+                    Style="{StaticResource Dzialanie}"/>
+
+            <Button Content="7"
+                    Click="Cyfra_Click"
+                    Style="{StaticResource Cyfra}"/>
+
+            <Button Content="8"
+                    Click="Cyfra_Click"
+                    Style="{StaticResource Cyfra}"/>
+
+            <Button Content="9"
+                    Click="Cyfra_Click"
+                    Style="{StaticResource Cyfra}"/>
+
+            <Button Content="−"
+                    Click="Dzialanie_Click"
+                    Style="{StaticResource Dzialanie}"/>
+
+            <Button Content="4"
+                    Click="Cyfra_Click"
+                    Style="{StaticResource Cyfra}"/>
+
+            <Button Content="5"
+                    Click="Cyfra_Click"
+                    Style="{StaticResource Cyfra}"/>
+
+            <Button Content="6"
+                    Click="Cyfra_Click"
+                    Style="{StaticResource Cyfra}"/>
+
+            <Button Content="+"
+                    Click="Dzialanie_Click"
+                    Style="{StaticResource Dzialanie}"/>
+
+            <Button Content="1"
+                    Click="Cyfra_Click"
+                    Style="{StaticResource Cyfra}"/>
+
+            <Button Content="2"
+                    Click="Cyfra_Click"
+                    Style="{StaticResource Cyfra}"/>
+
+            <Button Content="3"
+                    Click="Cyfra_Click"
+                    Style="{StaticResource Cyfra}"/>
+
+            <Button Content="="
+                    Click="Wynik_Click"
+                    Grid.RowSpan="2"
+                    Style="{StaticResource Wynikowy}" Margin="4,4,4,-73"/>
+
+            <Button Content="±"
+                    Click="Znak_Click"
+                    Style="{StaticResource Funkcyjny}"/>
+
+            <Button Content="0"
+                    Click="Cyfra_Click"
+                    Style="{StaticResource Cyfra}"/>
+
+            <Button Content=","
+                    Click="Przecinek_Click"
+                    Style="{StaticResource Cyfra}"/>
+
+        </UniformGrid>
+    </Grid>
+</Window>
