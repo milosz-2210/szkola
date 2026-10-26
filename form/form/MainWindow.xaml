@@ -1,0 +1,116 @@
+﻿<Window x:Class="form.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ankieta"
+        Height="450"
+        Width="750"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- LEWA STRONA - ANKIETA -->
+        <StackPanel Grid.Column="0" Margin="10">
+
+            <TextBlock Text="ANKIETA"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,20"/>
+
+            <TextBlock Text="Płeć:" FontWeight="Bold"/>
+
+            <StackPanel Orientation="Horizontal"
+                        Margin="0,5,0,15">
+                <RadioButton x:Name="rbMezczyzna"
+                             Content="Mężczyzna"
+                             GroupName="Plec"
+                             Margin="0,0,10,0"/>
+
+                <RadioButton x:Name="rbKobieta"
+                             Content="Kobieta"
+                             GroupName="Plec"
+                             Margin="0,0,10,0"/>
+
+                <RadioButton x:Name="rbInne"
+                             Content="Inne"
+                             GroupName="Plec"/>
+            </StackPanel>
+
+            <TextBlock Text="Wiek:" FontWeight="Bold"/>
+
+            <TextBox x:Name="txtWiek"
+                     Height="28"
+                     Margin="0,5,0,15"/>
+
+            <TextBlock Text="Kolor:" FontWeight="Bold"/>
+
+            <ComboBox x:Name="cmbKolor"
+                      Height="28"
+                      SelectedIndex="0"
+                      Margin="0,5,0,15">
+                <ComboBoxItem Content="Czerwony" Background="Red" Foreground="White"/>
+                <ComboBoxItem Content="Niebieski" Background="Blue" Foreground="White"/>
+                <ComboBoxItem Content="Zielony" Background="Green" Foreground="White"/>
+                <ComboBoxItem Content="Żółty" Background="Yellow" Foreground="Black"/>
+                <ComboBoxItem Content="Czarny" Background="Black" Foreground="White"/>
+                <ComboBoxItem Content="Inny" Foreground="Black"/>
+            </ComboBox>
+
+            <TextBlock Text="Zgoda:" FontWeight="Bold"/>
+
+            <CheckBox x:Name="chkZgoda"
+                      Content="Wyrażam zgodę"
+                      Margin="0,5,0,15"/>
+
+            <Button Content="Zapisz"
+                    Width="120"
+                    Height="35"
+                    HorizontalAlignment="Center"
+                    Click="Zapisz_Click"/>
+
+        </StackPanel>
+
+        <!-- PRAWA STRONA - WYNIKI -->
+        <StackPanel Grid.Column="1"
+                    Margin="20,10,10,10">
+
+            <TextBlock Text="WYNIKI"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,20"/>
+
+            <TextBlock x:Name="txtSredniWiek"
+                       Text="Średni wiek: 0"
+                       FontSize="16"
+                       Margin="0,5,0,15"
+                       TextWrapping="Wrap"/>
+
+            <TextBlock x:Name="txtKolor"
+                       Text="Najczęstszy kolor: brak"
+                       FontSize="16"
+                       Margin="0,5,0,15"
+                       TextWrapping="Wrap"/>
+
+            <TextBlock x:Name="txtMezczyzni"
+                       Text="Liczba mężczyzn: 0"
+                       FontSize="16"
+                       Margin="0,5,0,15"/>
+
+            <TextBlock x:Name="txtKobiety"
+                       Text="Liczba kobiet: 0"
+                       FontSize="16"
+                       Margin="0,5,0,15"/>
+
+            <TextBlock x:Name="txtZgody"
+                       Text="Liczba zgód: 0"
+                       FontSize="16"
+                       Margin="0,5,0,15"/>
+
+        </StackPanel>
+    </Grid>
+</Window>

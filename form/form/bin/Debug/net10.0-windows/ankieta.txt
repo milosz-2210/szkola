@@ -1,0 +1,3 @@
+Mężczyzna;20;Zielony;True
+Kobieta;18;Czarny;True
+Mężczyzna;40;Czarny;False
