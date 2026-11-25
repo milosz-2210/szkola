@@ -26,3 +26,4 @@ Projekt przedstawia symulację działania przejazdu kolejowego z wykorzystaniem 
 - C++
 - Code::Blocks
 - Maszyna stanów (State Machine)
+<img width="437" height="661" alt="Zrzut ekranu 2026-11-25 140333" src="https://github.com/user-attachments/assets/7a8660a1-7006-4f9b-8206-ec3922fb2663" />
